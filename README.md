@@ -11,7 +11,7 @@ Les données sont récupérées depuis un fichier CSV qui contient le résultat 
 
 ## Description de l'algorithme principal
 L'algorithme principal utilise une conception objet et analyse les X (avec X = 100 pour les test réalisés) derniers résultats de façon à déterminer quelles sont les combinaison de trois numéros qui obtiennent la fréquence d'apparition la plus élevée.
-Par exemple analyser les 100 derniers résultats revient à déterminer la présence de 5,474,000 combinaisons de trois numéros parmi 2000.
+Par exemple analyser les 100 derniers résultats revient à déterminer la présence de 5,474,000 combinaisons de trois numéros.
 Les résultats sont ensuite triés par ordre croissant selon leur fréquence, on affiche les trois combiniaisons de trois numéros avec la fréquence la plus haute.
 ### Résultats obtenus
 Les résultats suivant ont été obtenus avec un processeur de type AMD 64 Dual Core 4800+ :
