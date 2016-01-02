@@ -30,7 +30,7 @@ public class Main {
 		//calcul des statistiques et tri des résultats 
 		lif.setStats(lib, schemes);
 		lib.sortBy(lif);
-		System.out.println("Temps de l'analyse statistique et du tri des résultat : " + timer.startSince() + "s");
+		System.out.println("Temps de l'analyse statistique et du tri des résultats : " + timer.startSince() + "s");
 		for (int i = 0; i < 3; i++) {
 			System.out.println(lib.get(i).toString() + " -- freq: " + (int) lib.get(i).getStat(ffi));			
 		}

@@ -3,17 +3,17 @@ package scheme;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import csvparse.ParseCsvResultat;
+import csvparse.ParseCsvResults;
 
 public class ListScheme implements Iterable<Scheme> {
 
-	private ArrayList<Scheme> m_schemes = new ArrayList<Scheme>();
-	private ETypeJeu m_game;
+	private ArrayList<Scheme> schemes = new ArrayList<Scheme>();
+	private ETypeJeu game;
 
 	public ListScheme(ETypeJeu game) {
-		m_game = game;
+		this.game = game;
 		try {
-			new ParseCsvResultat(m_game, this);			
+			new ParseCsvResults(game, this);			
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException();
@@ -21,27 +21,27 @@ public class ListScheme implements Iterable<Scheme> {
 	}
 
 	public Iterator<Scheme> iterator() {
-		return m_schemes.iterator();
+		return schemes.iterator();
 	}
 
 	public void add(Scheme numero) {
-		m_schemes.add(numero);
+		schemes.add(numero);
 	}
 
 	public Scheme get(int distance) throws IndexOutOfBoundsException {
-		return m_schemes.get(distance);
+		return schemes.get(distance);
 	}
 
 	public void remove(int index) {
-		m_schemes.remove(index);
+		schemes.remove(index);
 	}
 
 	public int size() {
-		return m_schemes.size();
+		return schemes.size();
 	}
 
 	public ETypeJeu getGame() {
-		return m_game;
+		return game;
 	}
 
 

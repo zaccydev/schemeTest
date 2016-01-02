@@ -7,30 +7,30 @@ import java.util.Random;
 
 public class Scheme extends SchemeBase {
    
-    private boolean m_last = false;   
+    private boolean last = false;   
     private String myMillion = "";    
     
     public Scheme(ETypeJeu game){
     	super(game);              
-        m_last = false;
+        this.last = false;
     }
     
     public boolean isLast(){
         this.setIsLast();
-        return m_last;
+        return last;
     }
        
     public String titleScheme() {  
-    	return String.valueOf(m_dt);
+    	return String.valueOf(dt);
     }
     
     public SchemeBase getRandomNumberFromScheme(int nb) {
-    	SchemeBase sb = new SchemeBase(m_game);
+    	SchemeBase sb = new SchemeBase(game);
     	for (int i = 0; i < nb; i++) {
     		Random r = new Random();
-			int n = r.nextInt(m_game.getNbResultNum());
-			if (! sb.hasNumber(this.m_numeros.get(n),0)) {
-				sb.addNumber(this.m_numeros.get(n));
+			int n = r.nextInt(game.getNbResultNum());
+			if (! sb.hasNumber(this.numbers.get(n),0)) {
+				sb.addNumber(this.numbers.get(n));
 			} else {
 				i--;
 			}
@@ -49,16 +49,16 @@ public class Scheme extends SchemeBase {
         
     public void setTirage(Date date, int[] numeros, int[] extras) throws Exception {
         
-        m_numeros = new ArrayList<Number>();        
-        m_date = date;       
+        this.numbers = new ArrayList<Number>();        
+        date = date;       
         int y = 1;
         for (int i : numeros) {
-            m_numeros.add(new Number(i, false, y));
+            numbers.add(new Number(i, false, y));
             y++;
         }
         y = 1;
         for (int i : extras) {
-            m_numeros.add(new Number(i, true, y));
+            numbers.add(new Number(i, true, y));
             y++;
         }
     }
@@ -92,7 +92,7 @@ public class Scheme extends SchemeBase {
      */
     private void setIsLast() {
 
-        switch (m_game) {
+        switch (game) {
             case Loto:
 			try {
 				this.setIsLastLoto();
@@ -118,7 +118,7 @@ public class Scheme extends SchemeBase {
 
         Calendar clCurrent = Calendar.getInstance();
         Calendar clGame = Calendar.getInstance();
-        clGame.setTime(m_date);        
+        clGame.setTime(date);        
 
         int currentDay = clCurrent.get(Calendar.DAY_OF_WEEK);
         int gameDay = clGame.get(Calendar.DAY_OF_WEEK);
@@ -142,7 +142,7 @@ public class Scheme extends SchemeBase {
                 && !(currentDay == 7 && clCurrent.get(Calendar.HOUR_OF_DAY) < 21))
                 || (gameDay == 7 && (currentDay != 7 && currentDay != 1)
                 && !(currentDay == 2 && clCurrent.get(Calendar.HOUR_OF_DAY) < 21)))) {
-            m_last = true;                        
+            last = true;                        
         }
     }
 
@@ -150,7 +150,7 @@ public class Scheme extends SchemeBase {
 
         Calendar clCurrent = Calendar.getInstance();
         Calendar clGame = Calendar.getInstance();
-        clGame.setTime(m_date);        
+        clGame.setTime(date);        
 
         int currentDay = clCurrent.get(Calendar.DAY_OF_WEEK);
         int gameDay = clGame.get(Calendar.DAY_OF_WEEK);
@@ -173,7 +173,7 @@ public class Scheme extends SchemeBase {
                 || (gameDay == 6 && (currentDay != 6 && currentDay != 7 && currentDay != 1 && currentDay != 2)
                 && !(currentDay == 3 && clCurrent.get(Calendar.HOUR_OF_DAY) < 23)))) {
             //System.out.println("debug " + gameDay + " debug " + currentDay + " debug " + clCurrent.get(Calendar.HOUR_OF_DAY));                                
-            m_last = true;
+            last = true;
         }
     }
 }

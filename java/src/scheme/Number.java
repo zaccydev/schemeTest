@@ -4,10 +4,10 @@ package scheme;
 
 public class Number  {
 
-	private int m_value;
-    private boolean m_extra;
-    private int m_emplacement;
-    private ListStats m_listStats;
+	private int value;
+    private boolean extra;
+    private int emplacement;
+    private ListStats listStats;
     
    /** Le score est utilisé avec Number principalement pour attribuer un numéro aléatoire.
     * ex.: Permet d'être un critère de classement de tri (si autres critères égaux). */
@@ -15,18 +15,18 @@ public class Number  {
  
     
     public Number (int value, boolean extra, int emplacement) {
-        m_extra = extra;
-        m_value = value;
-        m_emplacement = emplacement;
-        m_listStats = new ListStats(null);
+        this.extra = extra;
+        this.value = value;
+        this.emplacement = emplacement;
+        this.listStats = new ListStats(null);
     }    
     
     public boolean isExtra() {
-        return m_extra;
+        return extra;
     }
         
     public int getValue() {
-        return m_value;
+        return value;
     }
 
     public int getScore() {
@@ -35,7 +35,7 @@ public class Number  {
     
     public int getFinale() {
     	
-    	return (m_value % 10);
+    	return (value % 10);
     }
     
     public void setScore(int score) {
@@ -43,15 +43,15 @@ public class Number  {
     }    
     
     public int getEmplacement() {
-        return m_emplacement;
+        return emplacement;
     }  
     
     public void setPlacement(int placement) {
-    	m_emplacement = placement;
+    	this.emplacement = placement;
     } 
     
     public ListStats getListStats() {
-        return m_listStats;
+        return listStats;
     }
         
     public boolean isEqual(Number n) {

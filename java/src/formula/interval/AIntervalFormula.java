@@ -2,23 +2,23 @@ package formula.interval;
 
 public abstract class AIntervalFormula implements IIntervalFormula {
 	
-	protected int m_dt = 0;	
-	protected char m_sortingOrder = '>';
+	protected int dt = 0;	
+	protected char sortingOrder = '>';
 
 	public AIntervalFormula() {		
-		m_dt = 0;	
+		dt = 0;	
 	}
 
 	public void setDistance(int dt) {
-		m_dt = dt;
+		this.dt = dt;
 	}	
 
 	public char getSortingOrder() {
-		return m_sortingOrder;
+		return sortingOrder;
 	}
 
 	private void setSortingOrder(char o) {
-		m_sortingOrder = o;
+		sortingOrder = o;
 	}
 
 	public void setSortingOrderAsc() {

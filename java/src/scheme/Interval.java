@@ -8,6 +8,7 @@ public class Interval implements Comparable<Interval> {
 	protected byte[] interval;
 	
 	private int score = 0;
+	private ListStats listStats;  
 	
 	public boolean hasByte(byte b) {
 		
@@ -76,7 +77,7 @@ public class Interval implements Comparable<Interval> {
 	public Interval(byte[] interval) {
 		this.interval = interval;
 		
-		m_listStats = new ListStats(null);
+		this.listStats = new ListStats(null);
 	}	
 		
 	public byte[] getInterval() {
@@ -112,28 +113,28 @@ public class Interval implements Comparable<Interval> {
 		return string.substring(0, string.length() - 2);		 
 	}	
 	
-	private ListStats m_listStats;  
-    private ListIntervalFormula m_comparatorsIIF = null;
+	
+    private ListIntervalFormula comparatorsIIF = null;
 	
     public ListStats getListStats() {
-        return m_listStats;
+        return listStats;
     }
     
     public void setStat(IIntervalFormula fml, ListScheme ls) {
-    	this.m_listStats.setStat(fml, this, ls);
+    	listStats.setStat(fml, this, ls);
     }
     
     public double getStat(IIntervalFormula fml) {     	
-    	return this.m_listStats.getStat(fml);    	
+    	return listStats.getStat(fml);    	
     }
  	
     public void setComparatorsIIF(ListIntervalFormula lnf) {
-    	m_comparatorsIIF = lnf;
+    	comparatorsIIF = lnf;
     }   
     
     public int compareTo(Interval intv) {
         
-    	if (m_comparatorsIIF == null) {
+    	if (comparatorsIIF == null) {
     		if (intv.getScore() > this.getScore()) {
     			return -1;
     		}
@@ -144,7 +145,7 @@ public class Interval implements Comparable<Interval> {
     
     private int compareInfWithOrder(Interval intv, int nestLevel) {
     	int comp = 0;
-    	IIntervalFormula inf = m_comparatorsIIF.get(nestLevel);
+    	IIntervalFormula inf = comparatorsIIF.get(nestLevel);
     	char order = inf.getSortingOrder();
     	
     	if (order == '<' || order != '>') {
@@ -177,7 +178,7 @@ public class Interval implements Comparable<Interval> {
     private int compareTo(Interval intv, int nestLevel) {    	
     	int comp = 0;
     	
-    	while (nestLevel < m_comparatorsIIF.size() && comp == 0) {
+    	while (nestLevel < comparatorsIIF.size() && comp == 0) {
     		comp = this.compareInfWithOrder(intv, nestLevel);
     		nestLevel++;
     	}    	

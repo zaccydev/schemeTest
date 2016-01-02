@@ -10,15 +10,15 @@ import formula.interval.IIntervalFormula;
 
 public class ListStats {
 	
-	private HashMap<String, Double> m_stats;
+	private HashMap<String, Double> stats;
    
     public ListStats(SchemeBase scheme) {
-        m_stats = new HashMap<String, Double>();     
+        stats = new HashMap<String, Double>();     
     }   
     
     private double getStat(String statName) {
     	try {
-        	return m_stats.get(statName);
+        	return stats.get(statName);
         }
         catch (NullPointerException e) {
         	e.printStackTrace();
@@ -47,7 +47,7 @@ public class ListStats {
     
     public void setStat(IIntervalFormula stat, Interval intv, ListScheme ls) {
     	try {
-    		m_stats.put(stat.getName(), stat.getResults(intv, ls));
+    		stats.put(stat.getName(), stat.getResults(intv, ls));
     	}
     	catch (Exception e) {
     		e.printStackTrace();

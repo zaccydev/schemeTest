@@ -6,21 +6,21 @@ import scheme.Interval;
 
 public class FrequenceInterval extends AIntervalFormula {
 
-	private int m_tNbr;  
+	private int tNbr;  
     private boolean simpleName = true;
 	
 	public FrequenceInterval(int tNbr) {    	
     	super();
-    	m_tNbr = tNbr;
+    	this.tNbr = tNbr;
     }
 
 	public double getResults(Interval intv, ListScheme schemes) {	
 		int freq = 0;         
-        int max = m_tNbr + m_dt;       
+        int max = this.tNbr + dt;       
         
         boolean bIntv = false; 
       
-       	for (int i = m_dt; i < max; i++) {  
+       	for (int i = dt; i < max; i++) {  
             for (byte intvNumber : intv.getInterval()) {            	
             	if (! schemes.get(i).hasNumber(new Number(intvNumber, false, 0), 0)) {
             		bIntv = false;
@@ -39,11 +39,11 @@ public class FrequenceInterval extends AIntervalFormula {
 	public String getName() {
         
     	if (simpleName)
-    		return "Freq Intv " + m_tNbr;
+    		return "Freq Intv " + tNbr;
     	String 	dt = "";
-    	if (m_dt >= 1)
-    		dt = " de " + m_dt + " à ";
-        return "Freq Intv " + dt + String.valueOf(m_tNbr + m_dt);   
+    	if (this.dt >= 1)
+    		dt = " de " + this.dt + " à ";
+        return "Freq Intv " + dt + String.valueOf(tNbr + dt);   
     }
 
 }
