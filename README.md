@@ -22,12 +22,13 @@ Les résultats suivant ont été obtenus avec un processeur de type AMD 64 Dual 
 ## Utiliser ou tester le programme
 Pour cela il suffit de récupérer le code du dépôt et de lancer les commandes suivantes:
 
->Pour une utilisation avec Java :
+###Pour une utilisation avec Java :
 Depuis le répertoire ./java : `java -jar ./../schemeTestJava.jar`
 
->Pour une utilisation avec Php :
+###Pour une utilisation avec Php :
 Depuis le répertoire ./php : `php main.php`
 Ou pour lancer les tests unitaires : `phpunit --bootstrap main.php ./test/`
 
-> les fichiers CSV utilisés sont situés dans le répertoire ./csvfiles, bien que les tests portent sur les 100 derniers résultats on peut augmenter ou diminuer cette valeur (variable nb_result du fichier principal).
-> dans le cas d'une utilisation depuis un autre OS que Linux ou Mac si les liens vers le fichier app.properties sont perdus copier ce fichier depuis ./java/src/ à la racine du projet.
+#### Remarques :
+Les fichiers CSV utilisés sont situés dans le répertoire ./csvfiles, bien que les tests portent sur les 100 derniers résultats on peut augmenter ou diminuer cette valeur (variable nb_result du fichier principal).
+Dans le cas d'une utilisation depuis un autre OS que Linux ou Mac si les liens vers le fichier app.properties sont perdus copier ce fichier depuis ./java/src/ à la racine du projet.
