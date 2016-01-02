@@ -5,14 +5,14 @@ Ce projet à pour but de comparer la rapidité de différents langages de progra
 Même si les résultats restent sans surprise majeure il est intéressant de constater que la puissance de calcul de PHP 7 apporte une très bonne amélioration par rapport à PHP 5.
 
 ## Description du programme
-Le programme réalise une analyse statistique sur un nombre déterminés de combinaisons extraites à partir des résultats d'un jeu de hazard.
+Le programme réalise une analyse statistique sur un nombre déterminé de combinaisons extraites à partir des résultats d'un jeu de hasard.
 Les données utilisées concernent les résultats du jeu de Keno de la Française des Jeux.
-Les données sont récupérées depuis un fichier CSV qui contient le résultat des tirages. Pour rappel le jeu de Keno est basé sur la sélection aléatoire de 20 numéros parmi 70.
+Les données sont récupérées depuis un fichier CSV qui contient le résultat des tirages. Le jeu de Keno est basé sur un tirage aléatoire de 20 numéros parmi 70.
 
 ## Description de l'algorithme principal
 L'algorithme principal utilise une conception objet et analyse les X (avec X = 100 pour les test réalisés) derniers résultats de façon à déterminer quelles sont les combinaison de trois numéros qui obtiennent la fréquence d'apparition la plus élevée.
 Par exemple analyser les 100 derniers résultats revient à déterminer la présence de 5,474,000 combinaisons de trois numéros.
-Les résultats sont ensuite triés par ordre croissant selon leur fréquence, on affiche les trois combiniaisons de trois numéros avec la fréquence la plus haute.
+Les résultats sont ensuite triés par ordre croissant selon leur fréquence, on affiche les trois combinaisons de trois numéros avec la fréquence la plus haute.
 ### Résultats obtenus
 Les résultats suivant ont été obtenus avec un processeur de type AMD 64 Dual Core 4800+ :
 * PHP5 : 145 secondes
